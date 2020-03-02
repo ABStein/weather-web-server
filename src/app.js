@@ -2,9 +2,9 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const app = express()
-const dotenv = require('dotenv').config('.env');
 const geocode = require('../src/utils/geocode')
 const forecast = require('../src/utils/forecast')
+const dotenv = require('dotenv').config('.env');
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -50,6 +50,8 @@ app.get('/weather', (req, res) => {
             error: 'You must provide an address.'
         })
     }
+    // the {} in geocode args includes shorthand object deconstruction to set variables 
+    // from object properties that are available to us.    
     geocode(req.query.address, (error, {latitude, longitude, location} = {}) => {
         if (error) {
             return res.send({
