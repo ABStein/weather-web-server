@@ -9,9 +9,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Try a different location', body)
         } else {
-            callback(undefined, {
-                forecast: `The weather is ${body.currently.summary} with a tempearture of ${body.currently.temperature} with a ${body.currently.precipProbability}% chance of rain.`
-            })
+            callback(undefined, `The weather is ${body.currently.summary} with a tempearture of ${body.currently.temperature} with a ${body.currently.precipProbability}% chance of rain.`)
         }
     })
     
