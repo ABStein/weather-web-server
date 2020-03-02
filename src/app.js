@@ -22,7 +22,7 @@ app.use(express.static(publicDirectoryPath))
 
 // Routes
 app.get('', (req, res) => {
-    // rednering available page and creating variables to be used in template
+    // rendering available page and creating variables to be used in template
     res.render('index', {
         title: 'Weather App',
         name: 'Andrew Stein'
@@ -94,4 +94,4 @@ app.get('*', (req, res) => {
 // for development 
 app.listen(3000, () => {
     console.log('Server is up on port 3000')
-})
+});
