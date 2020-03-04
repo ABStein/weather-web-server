@@ -1,10 +1,14 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
-const app = express()
 const geocode = require('../src/utils/geocode')
 const forecast = require('../src/utils/forecast')
 const dotenv = require('dotenv').config('.env');
+
+const app = express()
+// port says to start up on whatever port is available, whether that
+// is in heroku it will use process.env or running locoally using 3000
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -92,8 +96,6 @@ app.get('*', (req, res) => {
 })
 
 
-
-// for development 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000')
+app.listen(port, () => {
+    console.log(`Server is up on ${port}`)
 });
