@@ -10,14 +10,16 @@
     <body>
         <div class="main-content">
             {{>header}}
-            <form>
-                <input placeholder="Location" type="text">
-                <button>Search</button>
-            </form>
-
-            {{!-- where forecasts will go --}}
-            <p id="message-1"></p>
-            <p id="message-2"></p>
+            <div class="weather-ui">
+                <form>
+                    Check the weather for your city
+                    <input placeholder="Location" type="text">
+                    <button>Search</button>
+                </form>
+                {{!-- where forecasts will go --}}
+                <p id="message-1"></p>
+                <p id="message-2"></p>
+            </div>
         </div>
         
         {{>footer}}
