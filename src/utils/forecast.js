@@ -5,6 +5,7 @@ const forecast = (city, callback) => {
     const url = `http://api.weatherstack.com/forecast?access_key=${process.env.WEATHERSTACK_API_KEY}&query=${city}`;
     console.log('forecast url:' , url)
     request({ url, json: true }, (error, { body }) => {
+        console.log(body)
         if (error) {
             callback('There was an issue connecting to the server. Please try again later.')
         } else if (body.error) {
