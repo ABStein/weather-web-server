@@ -29,5 +29,5 @@ jobs:
       env:
         DARK_SKY_API_KEY: ${{ secrets.DARK_SKY_API_KEY }}
         MAPBOX_API_KEY: ${{ secrets.MAPBOX_API_KEY }}
-    - run: npm test --if-present
+    - run: npm run test
 
