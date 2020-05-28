@@ -3,7 +3,7 @@ const mockGeocode = require('../../src/utils/geocode')
 const dotenv = require('dotenv').config('.env');
 
 
-describe('Testing forecast API', function() {
+describe('Testing Mapbox API', function() {
   const sandbox = sinon.createSandbox();
   let res;
 

@@ -27,3 +27,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test --if-present
+        env:
+          DARK_SKY_API_KEY: ${{ secrets.DARK_SKY_API_KEY }}
+          MAPBOX_API_KEY: ${{ secrets.MAPBOX_API_KEY }}
+
