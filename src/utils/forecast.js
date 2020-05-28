@@ -12,7 +12,6 @@ const forecast = (city, callback) => {
             callback(undefined, `It is ${body.current.weather_descriptions[0]} in ${body.location.name} today.`)
         }
     })
-    
 }
 
 module.exports = forecast
