@@ -3,7 +3,7 @@ const mockForecast = require('../../src/utils/forecast')
 const dotenv = require('dotenv').config('.env');
 
 
-describe('Testing forecast API', function() {
+describe('Testing Dark Sky API', function() {
   const sandbox = sinon.createSandbox();
   let res;
 
