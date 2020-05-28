@@ -18,10 +18,10 @@ describe('Testing Dark Sky API', function() {
 
   it('should hit the api and get a 200', function() {
 
-    mockForecast(20, 56, (error, data) => {
+    mockForecast('New York', (error, data) => {
       console.log(data)
 
-      expect(data).to.include('Asia/Muscat');
+      expect(data).to.include('New York');
     });
   });
 })

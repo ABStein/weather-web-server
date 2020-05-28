@@ -1,8 +1,8 @@
 const request = require('request');
 const dotenv = require('dotenv').config('.env');
 
-const forecast = (latitude, longitude, callback) => {
-    const url = `https://api.darksky.net/forecast/${process.env.DARK_SKY_API_KEY}/${latitude},${longitude}`;
+const forecast = (city, callback) => {
+    const url = `http://api.weatherstack.com/forecast?access_key=${process.env.WEATHERSTACK_API_KEY}&query=${city}`;
     console.log('forecast url:' , url)
     request({ url, json: true }, (error, { body }) => {
         if (error) {
@@ -10,7 +10,8 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Try a different location', body)
         } else {
-            callback(undefined, `The weather in ${body.timezone} is ${body.currently.summary} with a tempearture of ${body.currently.temperature} with a ${body.currently.precipProbability}% chance of rain.`)
+            console.log(body)
+            callback(undefined, `It is ${body.current.weather_descriptions[0]} in ${body.location.name} today.`)
         }
     })
     
