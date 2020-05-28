@@ -10,7 +10,6 @@ const forecast = (city, callback) => {
         } else if (body.error) {
             callback('Try a different location', body)
         } else {
-            console.log(body)
             callback(undefined, `It is ${body.current.weather_descriptions[0]} in ${body.location.name} today.`)
         }
     })
