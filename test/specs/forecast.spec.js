@@ -16,12 +16,12 @@ describe('Testing forecast API', function() {
     sandbox.restore();
   });
 
-  it('should hit the api and get a 200', async function() {
+  it('should hit the api and get a 200', function() {
 
-    res = await mockForecast(20, 56);
+    mockForecast(20, 56, (error, data) => {
+      console.log(data)
 
-    expect(res.status).to.eq(200);
-    expect(res.data.latitude).to.eq(20);
-    expect(res.data.longitude).to.eq(56);
+      expect(data).to.include('Asia/Muscat');
+    });
   });
 })

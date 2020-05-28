@@ -16,10 +16,13 @@ describe('Testing forecast API', function() {
     sandbox.restore();
   });
 
-  it('should hit the api and get a 200', async function() {
+  it('should hit the api and get a 200', function() {
 
-    res = await mockGeocode('Boston');
-    
-    expect(res.status).to.eq(200);
+    mockGeocode('Boston', (error, data) => {
+      console.log(data)
+      expect(data.location).to.eq('Boston, Massachusetts, United States')
+      expect(data.latitude).to.eq(42.3605)
+      expect(data.longitude).to.eq(-71.0596)
+    });
   });
 })
