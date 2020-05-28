@@ -19,6 +19,7 @@ describe('Testing Mapbox API', function() {
   it('should hit the api and get a 200', function() {
 
     mockGeocode('-73.989,40.733', (error, data) => {
+      console.log(data);
       expect(data.location).to.eq('120 East 13th Street, New York, New York 10003, United States')
       expect(data.latitude).to.eq(40.7330031)
       expect(data.longitude).to.eq(-73.9888929)
