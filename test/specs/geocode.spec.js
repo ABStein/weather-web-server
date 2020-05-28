@@ -18,7 +18,7 @@ describe('Testing Mapbox API', function() {
 
   it('should hit the api and get a 200', function() {
 
-    mockGeocode('Boston', (error, data) => {
+    mockGeocode('boston', (error, data) => {
       console.log(data)
       expect(data.location).to.eq('Boston, Massachusetts, United States')
       expect(data.latitude).to.eq(42.3605)
