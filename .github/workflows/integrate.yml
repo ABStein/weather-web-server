@@ -28,6 +28,6 @@ jobs:
     - run: npm run build --if-present
     - run: npm run test
       env:
-        DARK_SKY_API_KEY: https://api.darksky.net/forecast/${{ secrets.DARK_SKY_API_KEY }}
+        DARK_SKY_API_KEY: ${{ secrets.DARK_SKY_API_KEY }}
         MAPBOX_API_KEY: ${{ secrets.MAPBOX_API_KEY }}
 
