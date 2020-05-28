@@ -5,16 +5,22 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js -e js,hbs"
+    "dev": "nodemon src/app.js -e js,hbs",
+    "test": "NODE_ENV=test mocha './test/**/*.spec.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "hbs": "^4.1.1",
-    "request": "^2.88.2"
+    "mocha": "^7.2.0",
+    "mock-req-res": "^1.1.4",
+    "request": "^2.88.2",
+    "sinon": "^9.0.2",
+    "sinon-chai": "^3.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"

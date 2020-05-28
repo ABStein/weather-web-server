@@ -1,0 +1,6 @@
+# mocha.opts
+--check-leaks
+--colors
+--reporter spec
+--require ./test/bootstrap.js
+--ui bdd
