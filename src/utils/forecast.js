@@ -2,7 +2,7 @@ const request = require('request');
 const dotenv = require('dotenv').config('.env');
 
 const forecast = (latitude, longitude, callback) => {
-    const url = `https://api.darksky.net/forecast/${process.env.DARK_SKY_API_KEY}/${latitude},${longitude}`;
+    const url = `https://api.darksky.net/forecast/${secrets.DARK_SKY_API_KEY}/${latitude},${longitude}`;
     request({ url, json: true }, (error, { body }) => {
         if (error) {
             callback('There was an issue connecting to the server. Please try again later.')
