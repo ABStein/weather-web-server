@@ -23,7 +23,7 @@ weatherFrom.addEventListener('submit', (e) => {
                     // messageTwo.textContent = ''
                 } else {
                     messageOne.textContent = `Location: ${data.location}`
-                    messageTwo.textContent = `Forecast: ${data.forecast}`
+                    messageTwo.textContent = `Current Forecast: ${data.forecast}`
                 }
         
         })
