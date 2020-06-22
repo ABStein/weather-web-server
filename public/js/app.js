@@ -22,10 +22,11 @@ const precipitationElement = document.querySelector('[data-precipitation]');
 const windElement = document.querySelector('[data-wind]');
 
 const setWeatherData = (data, place) => {
-    console.log(data.forecast)
+    const fahrenheit = 1.8 * data.forecast.temperature + 32
+
     statusElement.textContent = data.forecast.weather_descriptions[0]
     locationElement.textContent = place
-    temperatureElement.textContent = data.forecast.temperature + '° Celcius'
+    temperatureElement.textContent = fahrenheit + '° Fahrenheit'
     precipitationElement.textContent = data.forecast.humidity + '%'
     windElement.textContent = data.forecast.wind_speed + ' mph'
 }
