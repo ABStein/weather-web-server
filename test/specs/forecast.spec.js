@@ -16,9 +16,9 @@ describe('Testing Weatherstack API', function() {
     sandbox.restore();
   });
 
-  it('should hit the api and get a 200', function() {
+  it('should hit the api and get a 200', async function() {
 
-    mockForecast('New York', (error, data) => {
+    await mockForecast('New York', (error, data) => {
 
       expect(data).to.include('New York');
     });
