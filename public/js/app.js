@@ -1,32 +1,31 @@
-const weatherFrom = document.querySelector('form');
-const search = document.querySelector('input');
-const messageOne = document.querySelector('#message-1');
-const messageTwo = document.querySelector('#message-2');
+const searchElement = document.querySelector('[data-city-search]')
+const searchBox = new google.maps.places.SearchBox(searchElement)
 
-messageOne.textContent = ''
-messageTwo.textContent = ''
-
-
-weatherFrom.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const location = search.value
+searchBox.addListener('places_changed', () => {
+    const place = searchBox.getPlaces()[0]
+    // if no place exists, return and break out
+    if (place == null) return
     
-    //  placeholder/making sure the second line is cleared out.
-    messageOne.textContent = 'Loading...';
-    messageTwo.textContent = '';
-    
-    fetch(`/weather?address=${location}`)
+    fetch(`/weather?address=${place.name}`)
         .then((response) => {
             response.json().then((data) => {
-                if (data.error) {
-                    messageOne.textContent = data.error
-                    // messageTwo.textContent = ''
-                } else {
-                    messageOne.textContent = `Location: ${data.location}`
-                    messageTwo.textContent = `Current Forecast: ${data.forecast}`
-                }
-        
+                setWeatherData(data, place.formatted_address)    
         })
         .catch((err) => console.log(err))
     })
 })
+
+const locationElement = document.querySelector('[data-location]');
+const statusElement = document.querySelector('[data-status]');
+const temperatureElement = document.querySelector('[data-temperature]');
+const precipitationElement = document.querySelector('[data-precipitation]');
+const windElement = document.querySelector('[data-wind]');
+
+const setWeatherData = (data, place) => {
+    console.log(data.forecast)
+    statusElement.textContent = data.forecast.weather_descriptions[0]
+    locationElement.textContent = place
+    temperatureElement.textContent = data.forecast.temperature + '° Celcius'
+    precipitationElement.textContent = data.forecast.humidity + '%'
+    windElement.textContent = data.forecast.wind_speed + ' mph'
+}

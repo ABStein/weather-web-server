@@ -10,7 +10,7 @@ const forecast = (city, callback) => {
             callback('Try a different location', body)
         } else {
             const fahrenheit = 1.8 * body.current.temperature + 32
-            callback(undefined, `It is ${fahrenheit} degrees fahrenheit and ${body.current.weather_descriptions[0]} in ${body.location.name} today.`)
+            callback(undefined, body.current)
         }
     })
 }

@@ -5,24 +5,35 @@
         <title>Weather</title>
         <link rel="icon" href="/img/weather.png">
         <link rel="stylesheet" href="css/styles.css">
+        <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqPQS2nFsQLj0AVH0CMciwCdi53hLqXuk&libraries=places"></script>
+        <script defer src="js/app.js"></script>
     </head>
-
     <body>
-        <div class="main-content">
-            {{>header}}
-            <div class="weather-ui">
-                <form>
-                    Check the weather for your city
-                    <input placeholder="Location" type="text">
-                    <button>Search</button>
-                </form>
-                {{!-- where forecasts will go --}}
-                <p id="message-1"></p>
-                <p id="message-2"></p>
+        <div class="container">          
+            <div class="content">
+                <div class="genral-information">
+                    <div class="status" data-status>Enter A Location</div>
+                    <div class="location" data-location>To Find The Weather</div>
+                </div>
+                <div class="detail-section">
+                    <div class="detail">
+                        <div class="title">Wind</div>
+                        <div class="value" data-wind>TBD</div>
+                    </div>
+                    <div class="detail">
+                        <div class="title">Temperature</div>
+                        <div class="value" data-temperature>TBD</div>
+                    </div>
+                    <div class="detail">
+                        <div class="title">Precipitation</div>
+                        <div class="value" data-precipitation>TBD</div>
+                    </div>
+                </div>
+                <div class="city-search-container">
+                    <input type="text" class="city-search" data-city-search placeholder="Enter Location">
+                </div>
             </div>
+        <a href="https://weatherstack.com/" class="weatherstack-logo">Powered By Weatherstack</a>
         </div>
-        
-        {{>footer}}
-        <script src="js/app.js"></script>
     </body>
 </html>
